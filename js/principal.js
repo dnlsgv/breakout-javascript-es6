@@ -50,7 +50,7 @@ let dibujar = () => {
 	pelotaEnJuego.dibujarse();
 	paletaDeControl.dibujarse();
 
-	pelotaEnJuego.detectarColision(anchura, altura);
+	pelotaEnJuego.detectarColision(anchura, altura, paletaDeControl);
 	pelotaEnJuego.moverse();
 
 	paletaDeControl.moverse(movimientoIzquierda, movimientoDerecha);
