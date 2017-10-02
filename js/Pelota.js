@@ -5,8 +5,8 @@ class Pelota {
 		this.y = y;
 		this.radio = radio;
 		this.color = color;
-		this.desplazamientoX = +1.5;
-		this.desplazamientoY = +1.5;
+		this.desplazamientoX = +2;
+		this.desplazamientoY = +2;
 	}
 
 	dibujarse(){
