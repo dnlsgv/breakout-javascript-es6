@@ -17,9 +17,10 @@ let cargarObjetos = () => {
 	pelotaEnJuego = new Pelota(anchura/2, altura/2, 15, '#5C547F');
 	paletaDeControl = new Paleta(100, 15, '#3EABCD');
 
-	for(let i = 0; i < 10; i++){
-		objetosDeBloque.push(new Bloque(i * 50, 10, 0, 'orange'));
+	for(let i = 0; i < 7; i++){
+		objetosDeBloque.push(new Bloque(i * 50 + 25, 100, 0, '#FF4B68'));
 	}
+	
 	//pelotaEnJuego.dibujarse();
 	//paletaDeControl.dibujarse();
 
