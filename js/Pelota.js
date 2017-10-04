@@ -44,7 +44,7 @@ class Pelota {
 			this.resetearPosicionInicial();
 		}
 		else{
-			console.log('WEIRD');			
+			//console.log('WEIRD');			
 			if((this.y + this.radio >= paleta.y) && (this.x - this.radio > paleta.x) && (this.x + this.radio < paleta.x + paleta.ancho)){
 				console.log('colision paleta');
 				this.desplazamientoY*=-1;

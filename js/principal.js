@@ -10,11 +10,16 @@ let paletaDeControl;
 let movimientoDerecha = false;
 let movimientoIzquierda = false;
 
+let objetosDeBloque = [];
+
 let cargarObjetos = () => {
 
-	pelotaEnJuego = new Pelota(anchura/2, altura/2, 25, '#5C547F');
-	paletaDeControl = new Paleta(150, 20, '#3EABCD');
+	pelotaEnJuego = new Pelota(anchura/2, altura/2, 15, '#5C547F');
+	paletaDeControl = new Paleta(100, 15, '#3EABCD');
 
+	for(let i = 0; i < 10; i++){
+		objetosDeBloque.push(new Bloque(i * 50, 10, 0, 'orange'));
+	}
 	//pelotaEnJuego.dibujarse();
 	//paletaDeControl.dibujarse();
 
@@ -44,11 +49,21 @@ let resetearTeclaPulsada = () => {
 	movimientoIzquierda = false;
 };
 
+let dibujarBloques = () => {
+
+	for(let bloque of objetosDeBloque){
+		bloque.dibujarse();
+	}
+
+};
+
 let dibujar = () => {
 	//Limpiar pantalla
 	contexto.clearRect(0, 0, anchura, altura);
 	pelotaEnJuego.dibujarse();
 	paletaDeControl.dibujarse();
+
+	dibujarBloques();
 
 	pelotaEnJuego.detectarColision(anchura, altura, paletaDeControl);
 	pelotaEnJuego.moverse();
