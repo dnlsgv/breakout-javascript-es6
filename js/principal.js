@@ -18,7 +18,10 @@ let cargarObjetos = () => {
 	paletaDeControl = new Paleta(100, 15, '#3EABCD');
 
 	for(let i = 0; i < 7; i++){
-		objetosDeBloque.push(new Bloque(i * 50 + 25, 100, 0, '#FF4B68'));
+		objetosDeBloque[i] = [];
+		for(let j = 0; j < 7; j++){
+			objetosDeBloque[i].push(new Bloque(j * 50 + 25, 30 * i, 0, '#FF4B68'));
+		}
 	}
 	
 	//pelotaEnJuego.dibujarse();
@@ -52,22 +55,26 @@ let resetearTeclaPulsada = () => {
 
 let dibujarBloques = () => {
 
-	for(let bloque of objetosDeBloque){
-		if(bloque.mostrar){
-			bloque.dibujarse();
-		}
-		else{
-			//Eliminarlo de los objetos bloques
-			 objetosDeBloque.splice(objetosDeBloque.indexOf(bloque), 1);
-			 console.log(objetosDeBloque.length);
+	for(let filaBloques of objetosDeBloque){
+		for(let bloque of filaBloques){
+			if(bloque.mostrar){
+				bloque.dibujarse();
+			}
+			else{
+				//Eliminarlo de los objetos bloques
+				filaBloques.splice(filaBloques.indexOf(bloque), 1);
+				//console.log(objetosDeBloque.length);
+			}
 		}
 	}
 
 };
 
 let detectarColisionEnBloques = () => {
-	for(let bloque of objetosDeBloque){
-		bloque.detectarColision(pelotaEnJuego);
+	for(let filaBloques of objetosDeBloque){
+		for(let bloque of filaBloques){
+			bloque.detectarColision(pelotaEnJuego);
+		}
 	}
 };
 
