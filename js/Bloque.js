@@ -6,6 +6,7 @@ class Bloque {
 		this.ancho = 50;
 		this.alto = 20;
 		this.color = color;
+		this.mostrar = true;
 	}
 
 	dibujarse(){
@@ -16,6 +17,14 @@ class Bloque {
 		contexto.fill();
 		contexto.strokeRect(this.x, this.y, this.ancho, this.alto);
 		contexto.closePath();
+	}
+
+	detectarColision(Pelota){
+		if(Pelota.x > this.x && Pelota.x < this.x + this.ancho && Pelota.y > this.y && Pelota.y < this.y + this.alto){
+			this.mostrar = false;
+			//Desplazamiento para abajo
+			Pelota.desplazamientoY*=-1;
+		}
 	}
 
 }

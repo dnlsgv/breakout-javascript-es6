@@ -53,9 +53,22 @@ let resetearTeclaPulsada = () => {
 let dibujarBloques = () => {
 
 	for(let bloque of objetosDeBloque){
-		bloque.dibujarse();
+		if(bloque.mostrar){
+			bloque.dibujarse();
+		}
+		else{
+			//Eliminarlo de los objetos bloques
+			 objetosDeBloque.splice(objetosDeBloque.indexOf(bloque), 1);
+			 console.log(objetosDeBloque.length);
+		}
 	}
 
+};
+
+let detectarColisionEnBloques = () => {
+	for(let bloque of objetosDeBloque){
+		bloque.detectarColision(pelotaEnJuego);
+	}
 };
 
 let dibujar = () => {
@@ -65,6 +78,7 @@ let dibujar = () => {
 	paletaDeControl.dibujarse();
 
 	dibujarBloques();
+	detectarColisionEnBloques();
 
 	pelotaEnJuego.detectarColision(anchura, altura, paletaDeControl);
 	pelotaEnJuego.moverse();
