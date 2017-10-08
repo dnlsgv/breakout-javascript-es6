@@ -42,6 +42,7 @@ class Pelota {
 			console.log('PERDER');
 			//this.desplazamientoY*=-1;
 			this.resetearPosicionInicial();
+			cantidadVidas--;
 		}
 		else{
 			//console.log('WEIRD');			

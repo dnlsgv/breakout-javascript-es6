@@ -24,6 +24,7 @@ class Bloque {
 			this.mostrar = false;
 			//Desplazamiento para abajo
 			Pelota.desplazamientoY*=-1;
+			puntos++;
 		}
 	}
 
